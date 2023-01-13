@@ -2,60 +2,60 @@ let qtnd = 0, cartas1 = [], cartaVirada0 = null, cartaVirada1 = null,
     contador = 0, contadorVitoria = 0, contadorJogadas = 0, controle = true;
 
 const cartas0 = [
-    `<div class="card" onclick="iniciarJogo(this)">
+    `<div class="card" onclick="iniciarJogo(this)" data-test="card">
         <div class="front-face face">
-            <img src="./img/back.png" alt="parrot">
+            <img src="./img/back.png" alt="parrot" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="./img/metalparrot.gif" alt="metalparrot">
+            <img src="./img/metalparrot.gif" alt="metalparrot" data-test="face-up-image">
         </div>
     </div>`,
-    `<div class="card" onclick="iniciarJogo(this)">
+    `<div class="card" onclick="iniciarJogo(this)" data-test="card">
         <div class="front-face face">
-            <img src="./img/back.png" alt="parrot">
+            <img src="./img/back.png" alt="parrot" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="./img/bobrossparrot.gif" alt="bobrosparror">
+            <img src="./img/bobrossparrot.gif" alt="bobrosparror" data-test="face-up-image>
         </div>
     </div>`,
-    `<div class="card" onclick="iniciarJogo(this)">
+    `<div class="card" onclick="iniciarJogo(this)" data-test="card">
         <div class="front-face face">
-            <img src="./img/back.png" alt="parrot">
+            <img src="./img/back.png" alt="parrot" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="./img/explodyparrot.gif" alt="explodyparrot">
+            <img src="./img/explodyparrot.gif" alt="explodyparrot" data-test="face-up-image>
         </div>
      </div>`,
-    `<div class="card" onclick="iniciarJogo(this)">
+    `<div class="card" onclick="iniciarJogo(this)" data-test="card">
         <div class="front-face face">
-            <img src="./img/back.png" alt="parrot">
+            <img src="./img/back.png" alt="parrot" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="./img/fiestaparrot.gif" alt="fiestaparrot">
+            <img src="./img/fiestaparrot.gif" alt="fiestaparrot" data-test="face-up-image>
         </div>
     </div>`,
-    `<div class="card" onclick="iniciarJogo(this)">
+    `<div class="card" onclick="iniciarJogo(this)" data-test="card">
         <div class="front-face face">
-            <img src="./img/back.png" alt="parrot">
+            <img src="./img/back.png" alt="parrot" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="./img/revertitparrot.gif" alt="revertitparrot">
+            <img src="./img/revertitparrot.gif" alt="revertitparrot" data-test="face-up-image>
         </div>
     </div>`,
-    `<div class="card" onclick="iniciarJogo(this)">
+    `<div class="card" onclick="iniciarJogo(this) data-test="card"">
         <div class="front-face face">
-            <img src="./img/back.png" alt="parrot">
+            <img src="./img/back.png" alt="parrot" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="./img/tripletsparrot.gif" alt="tripetsparrot">
+            <img src="./img/tripletsparrot.gif" alt="tripetsparrot" data-test="face-up-image>
         </div>
     </div>`,
-    `<div class="card" onclick="iniciarJogo(this)">
+    `<div class="card" onclick="iniciarJogo(this)" data-test="card"> 
         <div class="front-face face">
-            <img src="./img/back.png" alt="parrot">
+            <img src="./img/back.png" alt="parrot" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="./img/unicornparrot.gif" alt="unicornparrot">
+            <img src="./img/unicornparrot.gif" alt="unicornparrot" data-test="face-up-image>
         </div>
     </div>`
 ];
@@ -131,7 +131,7 @@ function iniciarJogo(carta) {
             contador = 0;
 
             if (contadorVitoria === qtnd / 2)
-                setTimeout(alert, 1000, `Você ganhou em ${contadorJogadas} jogadas`);
+                setTimeout(alert, 1000, `Você ganhou em ${contadorJogadas} jogadas!`);
         }
     }
 }
