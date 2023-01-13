@@ -1,7 +1,8 @@
-let qtnd = 0;
+let qtnd = 0, cartas1 = [], cartaVirada0 = null, cartaVirada1 = null, 
+contador = 0, contadorVitoria = 0, contadorJogadas = 0;
 
 const cartas0 = [
-    `<div class="card" onclick="virarCarta(this)">
+    `<div class="card" onclick="iniciarJogo(this)">
         <div class="front-face face">
             <img src="./img/back.png" alt="parrot">
         </div>
@@ -9,7 +10,7 @@ const cartas0 = [
             <img src="./img/metalparrot.gif" alt="metalparrot">
         </div>
     </div>`,
-    `<div class="card" onclick="virarCarta(this)">
+    `<div class="card" onclick="iniciarJogo(this)">
         <div class="front-face face">
             <img src="./img/back.png" alt="parrot">
         </div>
@@ -17,7 +18,7 @@ const cartas0 = [
             <img src="./img/bobrossparrot.gif" alt="bobrosparror">
         </div>
     </div>`,
-    `<div class="card" onclick="virarCarta(this)">
+    `<div class="card" onclick="iniciarJogo(this)">
         <div class="front-face face">
             <img src="./img/back.png" alt="parrot">
         </div>
@@ -25,7 +26,7 @@ const cartas0 = [
             <img src="./img/explodyparrot.gif" alt="explodyparrot">
         </div>
      </div>`,
-    `<div class="card" onclick="virarCarta(this)">
+    `<div class="card" onclick="iniciarJogo(this)">
         <div class="front-face face">
             <img src="./img/back.png" alt="parrot">
         </div>
@@ -33,7 +34,7 @@ const cartas0 = [
             <img src="./img/fiestaparrot.gif" alt="fiestaparrot">
         </div>
     </div>`,
-    `<div class="card" onclick="virarCarta(this)">
+    `<div class="card" onclick="iniciarJogo(this)">
         <div class="front-face face">
             <img src="./img/back.png" alt="parrot">
         </div>
@@ -41,7 +42,7 @@ const cartas0 = [
             <img src="./img/revertitparrot.gif" alt="revertitparrot">
         </div>
     </div>`,
-    `<div class="card" onclick="virarCarta(this)">
+    `<div class="card" onclick="iniciarJogo(this)">
         <div class="front-face face">
             <img src="./img/back.png" alt="parrot">
         </div>
@@ -49,7 +50,7 @@ const cartas0 = [
             <img src="./img/tripletsparrot.gif" alt="tripetsparrot">
         </div>
     </div>`,
-    `<div class="card" onclick="virarCarta(this)">
+    `<div class="card" onclick="iniciarJogo(this)">
         <div class="front-face face">
             <img src="./img/back.png" alt="parrot">
         </div>
@@ -58,8 +59,6 @@ const cartas0 = [
         </div>
     </div>`
 ];
-
-let cartas1 = [];
 
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -90,8 +89,44 @@ while (1) {
 }
 
 function virarCarta(carta) {
-    carta.children[0].style.cssText =
-        'transform: rotateY(-180deg);';
-    carta.children[1].style.cssText =
-        'transform: rotateY(0deg);';
+    carta.children[0].classList.toggle("face0");
+    carta.children[1].classList.toggle("face1");
+    console.log(carta);
+}
+
+function iniciarJogo(carta) {
+
+    contadorJogadas++;
+
+    if(contador === 0) {
+        virarCarta(carta);
+        cartaVirada0 = carta;
+        contador++;
+        console.log(carta);
+    }
+    else if(contador === 1) {
+        virarCarta(carta);
+        cartaVirada1 = carta;
+        contador++;
+        console.log(carta);
+    }
+    if(contador === 2) {
+
+        const imagem0 = cartaVirada0.querySelector(".back-face img").getAttribute("src");
+        const imagem1 = cartaVirada1.querySelector(".back-face img").getAttribute("src");
+
+        if (imagem0 === imagem1)
+            contadorVitoria++;
+        else {
+            setTimeout(virarCarta, 1000, cartaVirada0);
+            setTimeout(virarCarta, 1000, cartaVirada1);
+            console.log("teste3");
+        }
+        
+        contador = 0;
+
+        if(contadorVitoria === qtnd/2)
+            setTimeout(alert, 1000, `Você ganhou em ${contadorJogadas} jogadas`);
+    }
+    console.log(contador);
 }
