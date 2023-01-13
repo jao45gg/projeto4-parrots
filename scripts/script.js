@@ -1,5 +1,5 @@
-let qtnd = 0, cartas1 = [], cartaVirada0 = null, cartaVirada1 = null, 
-contador = 0, contadorVitoria = 0, contadorJogadas = 0;
+let qtnd = 0, cartas1 = [], cartaVirada0 = null, cartaVirada1 = null,
+    contador = 0, contadorVitoria = 0, contadorJogadas = 0, controle = true;
 
 const cartas0 = [
     `<div class="card" onclick="iniciarJogo(this)">
@@ -60,6 +60,8 @@ const cartas0 = [
     </div>`
 ];
 
+setTimeout(pegarQtnd, 1000);
+
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
@@ -79,54 +81,59 @@ function mostrarCartas(qtnd) {
     }
 }
 
-while (1) {
-    qtnd = Number(prompt("Com quantas cartas deseja jogar ?"));
-    if (qtnd % 2 === 0 && qtnd >= 4 && qtnd <= 14) {
-        mostrarCartas(qtnd);
-        break;
+function pegarQtnd() {
+    while (1) {
+        qtnd = Number(prompt("Com quantas cartas deseja jogar ?"));
+        if (qtnd % 2 === 0 && qtnd >= 4 && qtnd <= 14) {
+            mostrarCartas(qtnd);
+            break;
+        }
+        alert("Número inválido o número deve ser entre 4 e 14 e par !")
     }
-    alert("Número inválido o número deve ser entre 4 e 14 e par !")
+
 }
 
 function virarCarta(carta) {
     carta.children[0].classList.toggle("face0");
     carta.children[1].classList.toggle("face1");
-    console.log(carta);
 }
 
 function iniciarJogo(carta) {
 
-    contadorJogadas++;
+    if (controle) {
 
-    if(contador === 0) {
-        virarCarta(carta);
-        cartaVirada0 = carta;
-        contador++;
-        console.log(carta);
-    }
-    else if(contador === 1) {
-        virarCarta(carta);
-        cartaVirada1 = carta;
-        contador++;
-        console.log(carta);
-    }
-    if(contador === 2) {
+        contadorJogadas++;
 
-        const imagem0 = cartaVirada0.querySelector(".back-face img").getAttribute("src");
-        const imagem1 = cartaVirada1.querySelector(".back-face img").getAttribute("src");
-
-        if (imagem0 === imagem1)
-            contadorVitoria++;
-        else {
-            setTimeout(virarCarta, 1000, cartaVirada0);
-            setTimeout(virarCarta, 1000, cartaVirada1);
-            console.log("teste3");
+        if (contador === 0) {
+            virarCarta(carta);
+            cartaVirada0 = carta;
+            contador++;
         }
-        
-        contador = 0;
+        else if (contador === 1 && carta !== cartaVirada0) {
+            virarCarta(carta);
+            cartaVirada1 = carta;
+            contador++;
+            controle = false;
 
-        if(contadorVitoria === qtnd/2)
-            setTimeout(alert, 1000, `Você ganhou em ${contadorJogadas} jogadas`);
+
+            const imagem0 = cartaVirada0.querySelector(".back-face img").getAttribute("src");
+            const imagem1 = cartaVirada1.querySelector(".back-face img").getAttribute("src");
+
+            if (imagem0 === imagem1)
+                contadorVitoria++;
+            else {
+                setTimeout(virarCarta, 1000, cartaVirada0);
+                setTimeout(virarCarta, 1000, cartaVirada1);
+            }
+
+            setTimeout(delay, 1100);
+
+            contador = 0;
+
+            if (contadorVitoria === qtnd / 2)
+                setTimeout(alert, 1000, `Você ganhou em ${contadorJogadas} jogadas`);
+        }
     }
-    console.log(contador);
 }
+
+function delay() { controle = true; }
