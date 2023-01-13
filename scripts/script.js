@@ -15,7 +15,7 @@ const cartas0 = [
             <img src="./img/back.png" alt="parrot" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="./img/bobrossparrot.gif" alt="bobrosparror" data-test="face-up-image>
+            <img src="./img/bobrossparrot.gif" alt="bobrosparror" data-test="face-up-image">
         </div>
     </div>`,
     `<div class="card" onclick="iniciarJogo(this)" data-test="card">
@@ -23,7 +23,7 @@ const cartas0 = [
             <img src="./img/back.png" alt="parrot" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="./img/explodyparrot.gif" alt="explodyparrot" data-test="face-up-image>
+            <img src="./img/explodyparrot.gif" alt="explodyparrot" data-test="face-up-image">
         </div>
      </div>`,
     `<div class="card" onclick="iniciarJogo(this)" data-test="card">
@@ -31,7 +31,7 @@ const cartas0 = [
             <img src="./img/back.png" alt="parrot" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="./img/fiestaparrot.gif" alt="fiestaparrot" data-test="face-up-image>
+            <img src="./img/fiestaparrot.gif" alt="fiestaparrot" data-test="face-up-image">
         </div>
     </div>`,
     `<div class="card" onclick="iniciarJogo(this)" data-test="card">
@@ -39,15 +39,15 @@ const cartas0 = [
             <img src="./img/back.png" alt="parrot" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="./img/revertitparrot.gif" alt="revertitparrot" data-test="face-up-image>
+            <img src="./img/revertitparrot.gif" alt="revertitparrot" data-test="face-up-image">
         </div>
     </div>`,
-    `<div class="card" onclick="iniciarJogo(this) data-test="card"">
+    `<div class="card" onclick="iniciarJogo(this) data-test="card">
         <div class="front-face face">
             <img src="./img/back.png" alt="parrot" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="./img/tripletsparrot.gif" alt="tripetsparrot" data-test="face-up-image>
+            <img src="./img/tripletsparrot.gif" alt="tripetsparrot" data-test="face-up-image">
         </div>
     </div>`,
     `<div class="card" onclick="iniciarJogo(this)" data-test="card"> 
@@ -55,7 +55,7 @@ const cartas0 = [
             <img src="./img/back.png" alt="parrot" data-test="face-down-image">
         </div>
         <div class="back-face face">
-            <img src="./img/unicornparrot.gif" alt="unicornparrot" data-test="face-up-image>
+            <img src="./img/unicornparrot.gif" alt="unicornparrot" data-test="face-up-image">
         </div>
     </div>`
 ];
