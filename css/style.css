@@ -51,7 +51,7 @@ main {
     width: 100%;
 }
 
-.container {
+.container1 {
     justify-content: center;
     display: flex;
     width: 70%;
@@ -59,7 +59,7 @@ main {
     box-sizing: border-box;
 }
 
-.teste {
+.container0 {
     width: 100vw;
     height: 100vh;
     display: flex;
