@@ -42,7 +42,7 @@ const cartas0 = [
             <img src="./img/revertitparrot.gif" alt="revertitparrot" data-test="face-up-image">
         </div>
     </div>`,
-    `<div class="card" onclick="iniciarJogo(this) data-test="card">
+    `<div class="card" onclick="iniciarJogo(this)" data-test="card">
         <div class="front-face face">
             <img src="./img/back.png" alt="parrot" data-test="face-down-image">
         </div>
